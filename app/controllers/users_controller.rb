@@ -5,6 +5,10 @@ class UsersController < ApplicationController
   def create
   end
 
+  def home
+    @user = User.where(id: params[:id]).first
+  end
+
   def show
   end
 

@@ -29,6 +29,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Use pry
 gem 'pry-rails'
 
+# Bootstrap gems
+gem 'bootstrap-sass'
+gem 'bootswatch-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

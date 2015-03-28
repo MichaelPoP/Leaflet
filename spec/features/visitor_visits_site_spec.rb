@@ -12,7 +12,7 @@ feature 'Visitor visits site' do
     expect(page).to have_content("About")
     expect(page).to have_content("Email")
     expect(page).to have_content("Password")
-    expect(page).to have_content("Sign In")
+    expect(page).to have_content("Log In")
     expect(page).to have_content("Sign Up")
 
   end

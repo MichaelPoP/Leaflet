@@ -14,3 +14,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+// Flash Message Slide Up
+$('document').ready(function() {
+  $('.flashMessage').slideDown(400);
+
+  setTimeout(function() {
+    $('.flashMessage').slideUp(700);
+  }, 2000);
+});

@@ -1,39 +1,23 @@
 Rails.application.routes.draw do
-  get 'access/sign_in'
-
-  get 'access/sign_out'
-
-  get 'groups/new'
-
-  get 'groups/create'
-
-  get 'groups/show'
-
-  get 'groups/edit'
-
-  get 'groups/update'
-
-  get 'groups/destroy'
-
-  get 'users/new'
-
-  get 'users/create'
-
-  get 'users/show'
-
-  get 'users/edit'
-
-  get 'users/update'
-
-  get 'users/destroy'
-
-  get 'site/landing'
-
-  get 'site/about'
-
   root 'site#landing'
 
   get 'about', to: 'site#about'
+
+  post 'access', to: 'access#log_in', as: 'access'
+
+  delete 'access', to: 'access#sign_out'
+
+  get 'users/:id/home', to: 'users#home', as: 'home'
+
+  get 'users/:id/friends', to: 'friends#index', as: 'friends'
+
+  post 'users/:id/friends', to: 'friends#create'
+
+  delete 'users/:id/friends', to: 'friends#destroy'
+
+  resources :users do 
+    resources :groups
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
