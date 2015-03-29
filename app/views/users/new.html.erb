@@ -1,2 +1,24 @@
 <h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+
+<p><%= form_for User.new do |f| %>
+  <div>
+  <%= f.label :first_name %>:
+  <%= f.text_field(:first_name, required: true, autofocus: true) %>
+  </div>
+  <div>
+    <%= f.label :last_name %>:
+    <%= f.text_field :last_name %>
+  </div>
+  <div>
+    <%= f.label :email %>:
+    <%= f.text_field(:email, required: true) %>
+  </div>
+  <div>
+    <%= f.label :password %>:
+    <%= f.password_field(:password, required: true) %>
+  </div>
+  <div>
+    <%= f.label :confirm_password %>:
+    <%= f.password_field(:confirm_password, required: true) %>
+  </div>
+</p>
