@@ -1,2 +1,5 @@
-<h1>Groups#show</h1>
-<p>Find me in app/views/groups/show.html.erb</p>
+<h1><%= @group.name %></h1>
+<h2>Users</h2>
+<% @group.users.each do |user| %>
+  <h3><%= link_to "#{user.first_name} #{user.last_name}", "/users/#{user.id}" %></h3>
+<% end %>

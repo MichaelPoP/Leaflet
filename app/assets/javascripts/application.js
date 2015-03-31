@@ -21,6 +21,6 @@ $('document').ready(function() {
   $('.flashMessage').slideDown(400);
 
   setTimeout(function() {
-    $('.flashMessage').slideUp(700);
-  }, 2000);
+    $('.flashMessage').slideUp(600);
+  }, 2200);
 });

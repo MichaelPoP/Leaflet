@@ -1,0 +1,11 @@
+<h1>Your water bills</h1>
+<% if @water_bills.length == 0 %>
+<h2>Please <%= link_to "add", "/users/#{@current_user.id}/water_bills/new" %> an water bill</h2>
+<% else %>
+  <% @water_bills.each do |bill| %>
+    <h2 class = "billStat">
+      <%= bill.amount %>
+      <span class="billDate"><%= bill.month %> <%= bill.year %></span>
+    </h2>
+  <% end %>
+<% end %>

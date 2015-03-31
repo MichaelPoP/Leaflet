@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'site#landing'
 
+  post '/search', to: 'search#results', as: 'search'
+
   get 'about', to: 'site#about'
 
   post 'access', to: 'access#log_in', as: 'access'
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
   delete 'users/:id/friends', to: 'friends#destroy'
 
   resources :users do 
-    resources :groups
+    resources :groups, :water_bills, :gas_bills, :electric_bills
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

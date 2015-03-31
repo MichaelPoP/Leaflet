@@ -1,2 +1,11 @@
 <h1>Groups#new</h1>
-<p>Find me in app/views/groups/new.html.erb</p>
+<p><%= form_for [@current_user, Group.new] do |f| %>
+  <div>
+  <%= f.label :name %>:
+  <%= f.text_field(:name, required: true, autofocus: true, value: session[:group_name]) %>
+  </div>
+  <div>
+    <%= f.submit :Submit %>
+  </div>
+  <% end %>
+</p>

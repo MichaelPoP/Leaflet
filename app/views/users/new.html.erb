@@ -1,17 +1,21 @@
-<h1>Users#new</h1>
+<h1>Create a profile</h1>
 
 <p><%= form_for User.new do |f| %>
   <div>
   <%= f.label :first_name %>:
-  <%= f.text_field(:first_name, required: true, autofocus: true) %>
+  <%= f.text_field(:first_name, required: true, autofocus: true, value: "#{session[:first_name]}") %>
   </div>
   <div>
     <%= f.label :last_name %>:
-    <%= f.text_field :last_name %>
+    <%= f.text_field(:last_name, value: session[:last_name]) %>
   </div>
   <div>
     <%= f.label :email %>:
-    <%= f.text_field(:email, required: true) %>
+    <%= f.text_field(:email, value: session[:email]) %>
+  </div>
+  <div>
+    <%= f.label :mantra %>:
+    <%= f.text_area :mantra, size: "50x5" %>
   </div>
   <div>
     <%= f.label :password %>:
@@ -21,4 +25,8 @@
     <%= f.label :confirm_password %>:
     <%= f.password_field(:confirm_password, required: true) %>
   </div>
+  <div>
+    <%= f.submit :Submit %>
+  </div>
+  <% end %>
 </p>

@@ -1,0 +1,25 @@
+<h1>Search#results</h1>
+<% if @results[:friends].any? %>
+<h1>Friends</h1>
+  <% @results[:friends].each do |friend| %>
+  <h3><%= link_to "#{friend.first_name} #{friend.last_name}", "/users/#{friend.id}" %></h3>
+  <% end %>
+<% end %>
+
+<% if @results[:users].any? %>
+<h1>Users</h1>
+  <% @results[:users].each do |user| %>
+  <h3><%= link_to "#{user.first_name} #{user.last_name}", "/users/#{user.id}" %></h3>
+  <% end %>
+<% end %>
+
+<% if @results[:groups].any? %>
+<h1>Groups</h1>
+  <% @results[:groups].each do |group| %>
+  <h3><%= link_to group.name, "/users/#{@current_user.id}/groups/#{group.id}" %></h3>
+  <% end %>
+<% end %>
+
+<% if @results.values.all? {|group| group == []} %>
+  <h3>No results found</h3>
+<% end %>

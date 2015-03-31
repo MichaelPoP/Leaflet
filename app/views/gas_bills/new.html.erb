@@ -1,0 +1,19 @@
+<h1>Add a new gas bill</h1>
+<p>
+<%= form_for [@current_user, GasBill.new] do |f| %>
+  <div>
+  <%= f.label :amount %>:
+  <%= f.text_field(:amount, required: true, autofocus: true) %>
+  </div>
+  <div>
+    <%= f.label :year %>:
+    <%= f.text_field(:year, required: true) %>
+  </div>
+  <div>
+    <%= f.select(:month, ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]) %>
+  </div>
+  <div>
+    <%= f.submit :Submit %>
+  </div>
+<% end %> <!-- End form -->
+</p>

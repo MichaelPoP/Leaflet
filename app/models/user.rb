@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   has_many :electric_bills
   has_many :gas_bills
   has_many :water_bills
+
+  validates :first_name, presence: true
+  validates :email, presence: true, uniqueness: { case_sensitive: false}
+  validates :confirm_password, presence: true
 end

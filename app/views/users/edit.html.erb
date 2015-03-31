@@ -1,2 +1,23 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>Edit your profile</h1>
+<p><%= form_for @current_user do |f| %>
+  <div>
+  <%= f.label :first_name %>:
+  <%= f.text_field :first_name %>
+  </div>
+  <div>
+    <%= f.label :last_name %>:
+    <%= f.text_field :last_name %>
+  </div>
+  <div>
+    <%= f.label :email %>:
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :mantra %>:
+    <%= f.text_area :mantra, size: "50x5" %>
+  </div>
+  <div>
+    <%= f.submit :Submit %>
+  </div>
+  <% end %>
+</p>

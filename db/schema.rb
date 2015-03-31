@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150328021809) do
+ActiveRecord::Schema.define(version: 20150331170141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20150328021809) do
   end
 
   create_table "electric_bills", force: :cascade do |t|
-    t.decimal  "amount"
+    t.integer  "amount"
     t.integer  "month"
     t.integer  "year"
     t.integer  "user_id"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20150328021809) do
   end
 
   create_table "gas_bills", force: :cascade do |t|
-    t.decimal  "amount"
+    t.integer  "amount"
     t.integer  "month"
     t.integer  "year"
     t.integer  "user_id"
@@ -73,12 +73,14 @@ ActiveRecord::Schema.define(version: 20150328021809) do
     t.string   "email"
     t.string   "password"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "confirm_password"
+    t.string   "mantra"
   end
 
   create_table "water_bills", force: :cascade do |t|
-    t.decimal  "amount"
+    t.integer  "amount"
     t.integer  "month"
     t.integer  "year"
     t.integer  "user_id"

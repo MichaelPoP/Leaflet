@@ -1,5 +1,4 @@
 class AccessController < ApplicationController
-
   def log_in
     attempt_login(params[:email], params[:password])
   end
@@ -17,7 +16,8 @@ class AccessController < ApplicationController
         authorized_user = found_user.authenticate(password)
         if authorized_user
           session[:user_id] = found_user.id
-          redirect_to home_path, id: found_user.id, success: "Thanks for logging in!"
+          flash[:success] = "Thanks for logging in!"
+          redirect_to "/users/#{found_user.id}/home"
         else
           redirect_to root_path, notice: "Incorrect email or password"
         end
