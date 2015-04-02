@@ -35,6 +35,7 @@ class UsersController < ApplicationController
 
   def update
     @current_user.update_attributes update_params
+    flash[:success] = "Successfully updated your profile"
     redirect_to home_path
   end
 
