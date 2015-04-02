@@ -10,13 +10,11 @@
     <%= password_field_tag(:password, params[:password]) %>
   </p>
   <%= submit_tag "Login", class: "signInSubmit" %>
-
-  <p>
-    <form action="/users/new">
-      <button class = "signUpButton">Sign Up with Email</button>
-    </form>
-  <p>
-
   <% end %>
+
+  <p>
+    <%= button_to "Sign Up with Email", "/users/new", class: "signUpButton", method: :get %>
+  <p>
+
   </div>
 </div>

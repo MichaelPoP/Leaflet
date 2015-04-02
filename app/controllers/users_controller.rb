@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
     new_user = User.new user_params
     attempt_save_user new_user
   end
@@ -59,11 +58,13 @@ class UsersController < ApplicationController
     if user.save
       reset_session
       session[:user_id] = user.id
-      redirect_to "/users/#{user.id}/home", notice: "Thanks for signing up!"
+      flash[:success] = "Thanks for signing up!"
+      redirect_to "/users/#{user.id}/home"
     else
       session[:first_name] = user_params[:first_name]
       session[:last_name] = user_params[:last_name]
       session[:email] = user_params[:email]
+      session[:mantra] = user_params[:mantra]
       user.destroy
       redirect_to new_user_path, alert: user.errors.full_messages.join(", ")
     end

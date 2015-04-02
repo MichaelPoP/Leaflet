@@ -14,7 +14,7 @@
   </div>
   <div>
   <%= f.label :first_name, class: "newStats first_name" %>:
-  <%= f.text_field(:first_name, required: true, autofocus: true, value: "#{session[:first_name]}") %>
+  <%= f.text_field(:first_name, autofocus: true, value: "#{session[:first_name]}") %>
   </div>
   <div>
     <%= f.label :last_name, class: "newStats last_name" %>:
@@ -27,11 +27,11 @@
 </div> <!-- close row -->
   <div>
     <%= f.label :mantra, class: "newMantraLabel", value: "Mantra:" %>
-    <%= f.text_area :mantra, size: "50x5" %>
+    <%= f.text_area :mantra, size: "50x5", value: session[:mantra] %>
   </div>
   <div>
     <%= f.label :password, class: "newPasswordLabel", value: "Password:" %>
-    <%= f.password_field(:password, required: true) %>
+    <%= f.password_field(:password) %>
   </div>
   <div>
     <%= f.submit :Submit, class: "newUserSubmit" %>
