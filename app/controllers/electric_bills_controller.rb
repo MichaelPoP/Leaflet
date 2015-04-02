@@ -17,6 +17,8 @@ class ElectricBillsController < ApplicationController
   end
 
   def destroy
+    ElectricBill.destroy(params[:id])
+    redirect_to "/users/#{@current_user.id}/electric_bills"
   end
 
   private

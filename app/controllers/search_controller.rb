@@ -14,17 +14,18 @@ class SearchController < ApplicationController
   def find_friends query
     friends = []
     query.split.each do |word|
-      @current_user.friends.where(first_name: word) {|friend| friends.push(friend.downcase)}
-      @current_user.friends.where(last_name: word) {|friend| friends.push(friend)}
+      @current_user.friends.where(first_name: word).each {|friend| friends.push(friend)}
+      @current_user.friends.where(last_name: word).each {|friend| friends.push(friend)}
     end
+    binding.pry
     friends.uniq
   end
 
   def find_users query
     users = []
     query.split.each do |word|
-      User.where(first_name: word).each {|user| users.push(user.downcase)}
-      User.where(last_name: word).each {|user| users.push(user.downcase)}
+      User.where(first_name: word).each {|user| users.push(user)}
+      User.where(last_name: word).each {|user| users.push(user)}
     end
     users.uniq
   end

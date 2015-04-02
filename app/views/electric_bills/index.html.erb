@@ -4,8 +4,9 @@
 <% else %>
   <% @electric_bills.each do |bill| %>
     <h2 class = "billStat">
-      <%= bill.amount %>
-      <span class="billDate"><%= bill.month %> <%= bill.year %></span>
+      <%= bill.amount %> kWh
+      <span class="billDate"><%= month_num_to_abb bill.month %> <%= bill.year %></span>
+       <%= link_to "x", user_electric_bill_path(id: bill.id), method: :delete %>
     </h2>
   <% end %>
 <% end %>

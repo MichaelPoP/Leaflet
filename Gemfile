@@ -29,6 +29,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use pry
 gem 'pry-rails'
 
+# Adding uploadcare
+gem 'uploadcare-rails'
+
 # Bootstrap gems
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'

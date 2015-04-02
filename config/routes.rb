@@ -11,6 +11,12 @@ Rails.application.routes.draw do
 
   get 'users/:id/home', to: 'users#home', as: 'home'
 
+  get 'users/:user_id/groups/:id/add', to: 'groups#add_users', as: 'group_add_user'
+
+  post 'users/:user_id/groups/:id/add', to: 'groups#add_user'
+
+  delete 'users/:user_id/groups/:id/delete', to: 'groups#user_remove', as: 'remove_user_from_group'
+
   get 'users/:id/friends', to: 'friends#index', as: 'friends'
 
   post 'users/:id/friends', to: 'friends#create'

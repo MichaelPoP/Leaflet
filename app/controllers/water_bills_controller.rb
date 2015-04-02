@@ -17,6 +17,8 @@ class WaterBillsController < ApplicationController
   end
 
   def destroy
+    WaterBill.destroy(params[:id])
+    redirect_to "/users/#{@current_user.id}/water_bills"
   end
 
   private

@@ -5,6 +5,14 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script>
+    UPLOADCARE_PUBLIC_KEY = '8f615b911b6092cc8a13';
+    UPLOADCARE_TABS = 'all';
+    UPLOADCARE_IMAGES_ONLY = true;
+    UPLOADCARE_PREVIEW_STEP = true;
+    UPLOADCARE_CLEARABLE = true;
+  </script>
+  <script charset="utf-8" src="https://ucarecdn.com/widget/2.0.2/uploadcare/uploadcare.full.min.js"></script>
 </head>
 <body>
 
@@ -32,7 +40,7 @@
             <a href="/"><p>About</p></a>
           </li>
           <li>
-              <%= link_to "Profile", root_path %>
+              <%= link_to "Profile", user_path(@current_user) %>
           </li>
           <li>
             <%= link_to "Log Out", access_path, method: :delete %>
@@ -78,7 +86,9 @@
 
 <% end %> <!-- Session check -->
 
+<% if session[:user_id] %><div class = "dynamicContentToLeft"><% end %>
 <%= yield %>
+<% if session[:user_id] %></div><% end %>
 
 </body>
 </html>

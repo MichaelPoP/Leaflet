@@ -1,0 +1,4 @@
+<h1>Add users from friends</h1>
+<% @friends.each do |friend| %>
+<h3><%= friend.first_name %> <%= friend.last_name %>  <%= link_to "add", group_add_user_path(new_user_id: friend), method: :post %></h3>
+<% end %>

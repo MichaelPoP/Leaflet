@@ -1,6 +1,15 @@
 <h1>Create a profile</h1>
 
 <p><%= form_for User.new do |f| %>
+  <div class="col-sm-5 text-center">
+    <div class="image-preview-single">
+      
+        <img src="" alt="">
+        <input type="hidden" role="uploadcare-uploader" data-clearable="" data-images-only="" data-image-shrink="180x180 80%" data-public-key="8f615b911b6092cc8a13" value="" name="user[profile_pic]">
+      </div>
+      <p><b> Upload a Profile Picture</b>
+    </p>
+  </div>
   <div>
   <%= f.label :first_name %>:
   <%= f.text_field(:first_name, required: true, autofocus: true, value: "#{session[:first_name]}") %>

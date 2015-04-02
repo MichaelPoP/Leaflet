@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    binding.pry
     new_user = User.new user_params
     attempt_save_user new_user
   end
@@ -14,12 +15,19 @@ class UsersController < ApplicationController
     @electric_bill_recent = @current_user.electric_bills.order('year DESC, month DESC')[0]
     @gas_bill_recent = @current_user.gas_bills.order('year DESC, month DESC, created_at DESC')[0]
 
-    @best_gas = get_best_bills[:gas]
-    @best_electric = get_best_bills[:electric]
-    @best_water = get_best_bills[:water]
+    @best_gas = get_best_bills(@current_user)[:gas]
+    @best_electric = get_best_bills(@current_user)[:electric]
+    @best_water = get_best_bills(@current_user)[:water]
   end
 
   def show
+    @water_bill_recent = @user.water_bills.order('year DESC, month DESC')[0]
+    @electric_bill_recent = @user.electric_bills.order('year DESC, month DESC')[0]
+    @gas_bill_recent = @user.gas_bills.order('year DESC, month DESC, created_at DESC')[0]
+
+    @best_gas = get_best_bills(@user)[:gas]
+    @best_electric = get_best_bills(@user)[:electric]
+    @best_water = get_best_bills(@user)[:water]
   end
 
   def edit
@@ -39,7 +47,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :mantra, :password, :confirm_password, :password_digest)
+    params.require(:user).permit(:first_name, :last_name, :email, :mantra, :password, :password_digest, :profile_pic)
   end
 
   def update_params
@@ -47,29 +55,22 @@ class UsersController < ApplicationController
   end
 
   def attempt_save_user user
-    if user.password == user.confirm_password
-      if user.save
-        reset_session
-        session[:user_id] = user.id
-        redirect_to "/users/#{user.id}/home", notice: "Thanks for signing up!"
-      else
-        session[:first_name] = user_params[:first_name]
-        session[:last_name] = user_params[:last_name]
-        session[:email] = user_params[:email]
-        user.destroy
-        redirect_to new_user_path, alert: user.errors.full_messages.join(", ")
-      end
+    if user.save
+      reset_session
+      session[:user_id] = user.id
+      redirect_to "/users/#{user.id}/home", notice: "Thanks for signing up!"
     else
       session[:first_name] = user_params[:first_name]
       session[:last_name] = user_params[:last_name]
       session[:email] = user_params[:email]
-      redirect_to new_user_path, alert: "Please make sure your password confirmation matches"
+      user.destroy
+      redirect_to new_user_path, alert: user.errors.full_messages.join(", ")
     end
   end
 
-  def get_best_bills
+  def get_best_bills user
     best_bills = {}
-    all_bills = {water: @current_user.water_bills, gas: @current_user.gas_bills, electric: @current_user.electric_bills}
+    all_bills = {water: user.water_bills, gas: user.gas_bills, electric: user.electric_bills}
     all_bills.each do |key, value|
       if value.length > 1
         best_bills[key] = value.sort {|x,y| x.amount <=> y.amount}[0]

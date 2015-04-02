@@ -1,5 +1,41 @@
 <h1><%= @group.name %></h1>
-<h2>Users</h2>
+<div class="leaders waterLeaders">
+  <h2 class="billTitle">Water</h2>
+  <h3>Leader: <%= @water_bills[0].user.first_name %> <%= @water_bills[0].amount %> gallons</h3>
+  <% if @water_bills.length > 1 %>
+    <h3>Second: <%= @water_bills[1].user.first_name %> <%= @water_bills[1].amount %> gallons</h3>
+  <% end %>
+  <% if @water_bills.length > 2 %>
+    <h3>Third: <%= @water_bills[2].user.first_name %> <%= @water_bills[2].amount %> gallons</h3>
+  <% end %>
+  <h3>Low: <%= @water_bills[-1].amount %> gallons</h3>
+</div>
+<div class="leaders gasLeaders">
+  <h2 class="billTitle">Gas</h2>
+  <h3>Leader: <%= @gas_bills[0].user.first_name %> $<%= @gas_bills[0].amount %></h3>
+  <% if @gas_bills.length > 1 %>
+    <h3>Second: <%= @gas_bills[1].user.first_name %> $<%= @gas_bills[1].amount %></h3>
+  <% end %>
+  <% if @gas_bills.length > 2 %>
+    <h3>Third: <%= @gas_bills[2].user.first_name %> $<%= @gas_bills[2].amount %></h3>
+  <% end %>
+  <h3>Low: $<%= @gas_bills[-1].amount %></h3>
+</div>
+<div class="leaders electricLeaders">
+  <h2 class="billTitle">Electric</h2>
+  <h3>Leader: <%= @water_bills[0].user.first_name %> <%= @water_bills[0].amount %> kWh</h3>
+  <% if @electric_bills.length > 1 %>
+    <h3>Second: <%= @water_bills[1].user.first_name %> <%= @water_bills[1].amount %> kWh</h3>
+  <% end %>
+  <% if @electric_bills.length > 2 %>
+    <h3>Third: <%= @water_bills[2].user.first_name %> <%= @water_bills[2].amount %> kWh</h3>
+  <% end %>
+  <h3>Low: <%= @water_bills[-1].amount %> kWh</h3>
+</div>
+<h3>Users <%= link_to "add", "/users/#{@current_user.id}/groups/#{@group.id}/add" %></h3>
 <% @group.users.each do |user| %>
-  <h3><%= link_to "#{user.first_name} #{user.last_name}", "/users/#{user.id}" %></h3>
+  <h4>
+    <%= link_to "#{user.first_name} #{user.last_name}", "/users/#{user.id}" %>
+    <span class="deleteUserFromGroup"><%= link_to "x", remove_user_from_group_path(remove_user: user.id), method: :delete %></span>
+  </h4>
 <% end %>
