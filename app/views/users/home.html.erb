@@ -1,44 +1,58 @@
-<div class="profilePagePhoto" style="background-image: url(<%= @current_user.profile_pic %>); background-size: cover; background-position:center;"></div>
+<div class="row">
+<div class="profilePagePhoto col-sm-4 text-center" style="background-image: url(<%= @current_user.profile_pic %>); background-size: cover; background-position:center;"></div>
+<div class="col-sm-4 col-sm-offset-1 homeMantra"><p><%= @current_user.mantra %></p></div>
+</div>
+<div class="stats">
 <h1>Your stats</h1>
-  <h2 class = "billTitle">
-    <%= link_to "Gas", "/users/#{@current_user.id}/gas_bills" %> 
-    <span><%= link_to "New", "/users/#{@current_user.id}/gas_bills/new" %></span>
-  </h2>
-   <% if @current_user.gas_bills == [] %>
-    <h3>Please enter a gas bill</h3>
-   <% else %>
-     <h3 class="billBest">Best: $<%= @best_gas.amount %> 
-     <span class = "billDate"><%= month_num_to_abb @best_gas.month %> <%= @best_gas.year %></span></h3>
-     
-     <h3 class="billRecent">Recent: $<%= @gas_bill_recent.amount %> 
-     <span class = "billDate"><%= month_num_to_abb @gas_bill_recent.month %> <%= @gas_bill_recent.year %></span></h3>
-   <% end %>
- 
 
- <h2 class = "billTitle">
-    <%= link_to "Electric", "/users/#{@current_user.id}/electric_bills" %> 
-    <span><%= link_to "New", "/users/#{@current_user.id}/electric_bills/new" %></span>
-  </h2>
-   <% if @current_user.electric_bills == [] %>
-    <h3>Please enter an electric bill</h3>
-   <% else %>
-     <h3 class="billBest">Best: <%= @best_electric.amount %> kWh
-     <span class = "billDate"><%= month_num_to_abb @best_electric.month %> <%= @best_electric.year %></span></h3>
-     
-     <h3 class="billRecent">Recent: <%= @electric_bill_recent.amount %> kWh
-     <span class = "billDate"><%= month_num_to_abb @electric_bill_recent.month %> <%= @electric_bill_recent.year %></span></h3>
-   <% end %>
+<div class="row">
+  <div class="col-sm-4">
+    <h2 class = "billTitle">
+      <%= link_to "Gas", "/users/#{@current_user.id}/gas_bills" %> 
+      <span><%= link_to "New", "/users/#{@current_user.id}/gas_bills/new" %></span>
+    </h2>
+     <% if @current_user.gas_bills == [] %>
+      <h3>Please enter a gas bill</h3>
+     <% else %>
+       <h3 class="billBest">Best: $<%= @best_gas.amount %> 
+       <span class = "billDate"><%= month_num_to_abb @best_gas.month %> <%= @best_gas.year %></span></h3>
+       
+       <h3 class="billRecent">Recent: $<%= @gas_bill_recent.amount %> 
+       <span class = "billDate"><%= month_num_to_abb @gas_bill_recent.month %> <%= @gas_bill_recent.year %></span></h3>
+     <% end %>
+  </div> <!-- close gas -->
 
- <h2 class = "billTitle">
-   <%= link_to "Water", "/users/#{@current_user.id}/water_bills" %> 
-   <span><%= link_to "New", "/users/#{@current_user.id}/water_bills/new" %></span>
- </h2>
-   <% if @current_user.water_bills == [] %>
-    <h3>Please enter a water bill</h3>
-   <% else %>
-     <h3 class="billBest">Best: <%= @best_water.amount %> gallons
-     <span class = "billDate"><%= month_num_to_abb @best_water.month %> <%= @best_water.year %></span></h3>
-     
-     <h3 class="billRecent">Recent: <%= @water_bill_recent.amount %> gallons
-     <span class = "billDate"><%= month_num_to_abb @water_bill_recent.month %> <%= @water_bill_recent.year %></span></h3>
-   <% end %>
+
+  <div class="col-sm-4 col-sm-offset-1">
+    <h2 class = "billTitle">
+      <%= link_to "Electric", "/users/#{@current_user.id}/electric_bills" %> 
+      <span><%= link_to "New", "/users/#{@current_user.id}/electric_bills/new" %></span>
+    </h2>
+     <% if @current_user.electric_bills == [] %>
+      <h3>Please enter an electric bill</h3>
+     <% else %>
+       <h3 class="billBest">Best: <%= @best_electric.amount %> kWh
+       <span class = "billDate"><%= month_num_to_abb @best_electric.month %> <%= @best_electric.year %></span></h3>
+       
+       <h3 class="billRecent">Recent: <%= @electric_bill_recent.amount %> kWh
+       <span class = "billDate"><%= month_num_to_abb @electric_bill_recent.month %> <%= @electric_bill_recent.year %></span></h3>
+     <% end %>
+  </div> <!-- close electric -->
+</div> <!-- close row -->
+
+ <div class="col-sm-4 waterHome">
+   <h2 class = "billTitle">
+     <%= link_to "Water", "/users/#{@current_user.id}/water_bills" %> 
+     <span><%= link_to "New", "/users/#{@current_user.id}/water_bills/new" %></span>
+   </h2>
+     <% if @current_user.water_bills == [] %>
+      <h3>Please enter a water bill</h3>
+     <% else %>
+       <h3 class="billBest">Best: <%= @best_water.amount %> gallons
+       <span class = "billDate"><%= month_num_to_abb @best_water.month %> <%= @best_water.year %></span></h3>
+       
+       <h3 class="billRecent">Recent: <%= @water_bill_recent.amount %> gallons
+       <span class = "billDate"><%= month_num_to_abb @water_bill_recent.month %> <%= @water_bill_recent.year %></span></h3>
+     <% end %>
+ </div> <!-- close water -->
+ </div> <!-- close stats -->

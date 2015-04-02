@@ -17,7 +17,6 @@ class SearchController < ApplicationController
       @current_user.friends.where(first_name: word).each {|friend| friends.push(friend)}
       @current_user.friends.where(last_name: word).each {|friend| friends.push(friend)}
     end
-    binding.pry
     friends.uniq
   end
 

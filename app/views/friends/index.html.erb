@@ -1,4 +1,10 @@
 <h1>Your friends</h1>
 <% @friends.each do |friend| %>
-<h3><%= link_to "#{friend.first_name} #{friend.last_name}", "/users/#{friend.id}" %></h3>
+<div class="row friendDiv">
+  <div class="col-sm-3 friendPhoto text-center" style="background-image: url(<%= friend.profile_pic %>);"></div>
+  <div class="col-sm-3 col-sm-offset-1 friendStats">
+    <h3><%= link_to "#{friend.first_name} #{friend.last_name}", "/users/#{friend.id}" %></h3>
+    <h3><%= friend.email %></h3>
+  </div>
+</div>
 <% end %>

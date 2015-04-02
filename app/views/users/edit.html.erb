@@ -1,23 +1,23 @@
 <h1>Edit your profile</h1>
 <p><%= form_for @current_user do |f| %>
   <div>
-  <%= f.label :first_name %>:
+  <%= f.label :first_name, class: "editFirstName editStat", value: "First name:" %>
   <%= f.text_field :first_name %>
   </div>
   <div>
-    <%= f.label :last_name %>:
+    <%= f.label :last_name, class: "editLastName editStat", value: "Last name:"%>
     <%= f.text_field :last_name %>
   </div>
   <div>
-    <%= f.label :email %>:
+    <%= f.label :email, class: "editEmail editStat", value: "Email:"%>
     <%= f.text_field :email %>
   </div>
   <div>
-    <%= f.label :mantra %>:
+    <%= f.label :mantra, class: "editMantra editStat", value: "Mantra:" %>
     <%= f.text_area :mantra, size: "50x5" %>
   </div>
   <div>
-    <%= f.submit :Submit %>
+    <%= f.submit :Submit, class: "editSubmit" %>
   </div>
   <% end %>
 </p>

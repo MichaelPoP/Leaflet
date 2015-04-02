@@ -16,7 +16,7 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top leafletBar">
     <div class="container-fluid" class="navcontainer">
       
       <ul class="nav navbar-nav navbar-left">
@@ -24,7 +24,7 @@
           <%= link_to "Leaflet", root_path %>
         </li>
       <% if session[:user_id] %>
-        <li>
+        <li class = "searchForm">
           <%= form_tag(search_path, class: 'navbar-form navbar-left extra-padding-to-nav searchForm') do %>
             <%= text_field_tag(:query, params[:query]) %>
             <%= submit_tag("search Leaflet") %>
@@ -71,14 +71,14 @@
 
 <% if session[:user_id] %>
   <ul class="list-group leftSideNav pull-left">
-    <li class="list-group-item"><div>
+    <li class="list-group-item leafletBar"><div>
       <p><%= link_to "#{@current_user.first_name.capitalize} #{@current_user.last_name.capitalize}", "/users/#{@current_user.id}" %></p>
       <p><%= link_to "Edit", "/users/#{@current_user.id}/edit" %></p>
     </div></li>
-    <li class="list-group-item">
+    <li class="list-group-item leafletBar">
       <p><%= link_to "Friends", "/users/#{@current_user.id}/friends" %></p>
     </li>
-    <li class="list-group-item"><div>
+    <li class="list-group-item leafletBar"><div>
       <p><%= link_to "Groups", "/users/#{@current_user.id}/groups" %></p>
       <p><%= link_to "New Group", "/users/#{@current_user.id}/groups/new" %></p>
     </li></div>

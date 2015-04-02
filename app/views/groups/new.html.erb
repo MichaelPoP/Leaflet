@@ -1,11 +1,12 @@
-<h1>Groups#new</h1>
-<p><%= form_for [@current_user, Group.new] do |f| %>
-  <div>
-  <%= f.label :name %>:
-  <%= f.text_field(:name, required: true, autofocus: true, value: session[:group_name]) %>
-  </div>
-  <div>
-    <%= f.submit :Submit %>
-  </div>
+<div class="newGroupForm">
+  <h1>Make a new group</h1>
+  <%= form_for [@current_user, Group.new] do |f| %>
+    <div>
+    <%= f.label :name, class: "newGroupName" %>:
+    <%= f.text_field(:name, required: true, autofocus: true, value: session[:group_name]) %>
+    </div>
+    <div>
+      <%= f.submit :Submit, class: "newGroupSubmit"%>
+    </div>
   <% end %>
-</p>
+</div>

@@ -16,6 +16,11 @@
 
 @import "bootstrap";
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   padding-top: 55px;
 }
@@ -26,15 +31,192 @@ body {
 
 .leftSideNav {
   margin-top: 30px;
+  position: fixed;
   width: 15%;
 }
 
 .dynamicContentToLeft {
-  margin-left: 17%;
-  margin-top: 2.5%;
+  margin-left: 25%;
+  margin-top: 2.45%;
+}
+
+.profilePagePhoto, .friendPhoto {
+  background-position: center;
+  background-size: cover;
 }
 
 .profilePagePhoto {
-  height: 100px;
-  width: 100px;
+  height: 320px;
+}
+
+.leafletBar {
+  background-color: #ACD69E;
+}
+
+.leafletBar a {
+  color: #E4EDE2;
+}
+
+.leafletBar .navbar-nav li a {
+  color: #E4EdE2;
+}
+
+.searchForm {
+  margin-top: 2%;
+}
+
+.homeMantra {
+  margin-top: 8%;
+}
+
+.stats {
+  margin-left: -1.6%;
+}
+
+.mantra, .homeMantra p {
+  color: #8B9F92;
+  font-size: 1.3em;
+  font-style: italic;
+}
+
+.mantra {
+  margin-left: -10%;
+  margin-top: 4%;
+  width: 90%;
+  text-align: center;
+}
+
+.waterHome {
+  margin-left: 21%;
+}
+
+.showPageInfo {
+  margin-top: 8%;
+}
+
+.showPageInfo h1 {
+  padding-bottom: 30px;
+}
+
+.newUser {
+  margin-left: 20%;
+}
+
+.newUserTitle {
+  margin-bottom: 5%;
+  margin-left: 8.5%;
+}
+
+.image-preview-single {
+  height: 70px;
+  margin-top: 10px;
+}
+
+.profPicUploadMessage {
+  margin-top: -4%;
+}
+
+.newStats {
+  margin-bottom: 20px; 
+}
+
+.emailLabel {
+  margin-right: 2.8%;
+}
+
+.newMantraLabel {
+  margin-left: 9.2%;
+  margin-right: 6.5%;
+}
+
+.newPasswordLabel {
+  margin-left: 9.2%;
+  margin-right: 24.2%; 
+}
+
+.newUserSubmit {
+  margin-left: 47.9%;
+  margin-top: 1%;
+}
+
+.landingPageBackground {
+  background-image: url("http://assets.worldwildlife.org/photos/2842/images/hero_small/shutterstock_12730534.jpg?1352150501");
+  background-size: cover;
+  background-position: center;
+  height: 646px;
+  border-radius: 300px;
+}
+
+.signInBox {
+  margin-left: 35%;
+  margin-top: 26%;
+}
+
+.signInEmail {
+  color: white;
+  margin-right: 12.7%;
+}
+
+.signInPassword {
+  color: white;
+}
+
+.signInSubmit {
+  margin-bottom: 10%;
+  margin-left: 53%;
+}
+
+.signUpButton {
+  margin-left: 34%;
+}
+
+.editStat {
+  margin-bottom: 2.5%;
+}
+
+.editFirstName {
+  margin-top: 3%;
+}
+
+.editFirstName, .editLastName {
+  margin-right: 22.7%;
+}
+
+.editEmail {
+  margin-right: 26.2%;
+}
+
+.editMantra {
+  margin-right: 2.2%;
+}
+
+.editSubmit {
+  margin-left: 22%;
+}
+
+.friendPhoto {
+  height: 200px;
+}
+
+.friendDiv {
+  margin-bottom: 3%;
+}
+
+.friendStats {
+  margin-top: 3.5%;
+}
+
+.newGroupForm {
+  margin-left: 15%;
+  margin-top: 9%;
+}
+
+.newGroupName {
+  margin-left: 5%;
+}
+
+.newGroupSubmit {
+  margin-bottom: 1%;
+  margin-left: 16%;
+  margin-top: 1%;
 }

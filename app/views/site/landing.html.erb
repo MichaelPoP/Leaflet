@@ -1,20 +1,22 @@
-<div>
-<%= form_tag(access_path, class: 'navbar-form navbar-left extra-padding-to-nav', method: :password_field_tag) do %>
-<p>
-  <%= label_tag(:email) %>
-  <%= text_field_tag(:email, params[:email]) %>
-</p>
-<p>
-  <%= label_tag(:password) %>
-  <%= password_field_tag(:password, params[:password]) %>
-</p>
-<%= submit_tag("Login") %>
+<div class="container landingPageBackground">
+  <div class = "signInBox">
+  <%= form_tag(access_path, class: 'navbar-form navbar-left extra-padding-to-nav', method: :password_field_tag) do %>
+  <p>
+    <%= label_tag :email, "Email:", class: "signInEmail" %>
+    <%= text_field_tag(:email, params[:email]) %>
+  </p>
+  <p>
+    <%= label_tag :password, "Password:", class: "signInPassword" %>
+    <%= password_field_tag(:password, params[:password]) %>
+  </p>
+  <%= submit_tag "Login", class: "signInSubmit" %>
 
-<% end %>
+  <p>
+    <form action="/users/new">
+      <button class = "signUpButton">Sign Up with Email</button>
+    </form>
+  <p>
 
-<p>
-  <form action="/users/new">
-    <button>Sign Up with Email</button>
-  </form>
-<p>
+  <% end %>
+  </div>
 </div>

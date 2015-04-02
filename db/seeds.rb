@@ -13,7 +13,7 @@ User.create([
   {first_name: "Wangari", last_name: "Maathai", email: "savethisplanet@greenbeltmovement.org", mantra: "Until you dig a hole, you plant a tree, you water it and make it survive, you haven't done a thing. You are just talking.", password: "1234", profile_pic: "http://nashvillepubliclibrary.org/bringingbookstolife/files/2013/02/Wangari-Maathai.jpg"},
   {first_name: "Gaylord", last_name: "Nelson", email: "lightsout@eathday.org", mantra: "Our goal is not just an environment of clean air and water and scenic beauty. The objective is an environment of decency, quality and mutual respect for all other human beings and all other living creatures.", password: "1234", profile_pic: "http://www.adventure-journal.com/wp-content/uploads/2012/04/gaylord-nelson-earth-day-founder-portrait.jpg"},
   {first_name: "David", last_name: "Brower", email: "findmeclimbing@dbrower.org", mantra: "It seems that every time mankind is given a lot of energy, we go out and wreck something with it.", password: "1234", profile_pic: "https://www.google.com/search?q=david+brower&biw=1280&bih=701&source=lnms&tbm=isch&sa=X&ei=OIYcVejaHYr3oATa5IKoDw&ved=0CAYQ_AUoAQ#imgdii=_&imgrc=ZHEPQ_OLzLtVAM%253A%3B1MtnnMvZt8fOSM%3Bhttp%253A%252F%252Flivefromsouthmain.com%252Fwp-content%252Fuploads%252F2010%252F12%252Fdavid-brower.jpg%3Bhttp%253A%252F%252Flivefromsouthmain.com%252F2010%252F12%252F07%252Fhow-is-south-main-sustainable-intro-to-a-series%252F%3B594%3B396"},
-  {first_name: "Al", last_name: "Gore", email: "al@theinconveninttruth.org", mantra: "Our world faces a true planetary emergency. I know the phrase sounds shrill, and I know it's a challenge to the moral imagination.", password: "1324", profile_pic: "http://www.fastcashforjunkcars.com/blog/wp-content/uploads/2013/02/Al-Gore.jpg"}
+  {first_name: "Al", last_name: "Gore", email: "al@theinconvenienttruth.org", mantra: "Our world faces a true planetary emergency. I know the phrase sounds shrill, and I know it's a challenge to the moral imagination.", password: "1324", profile_pic: "http://www.fastcashforjunkcars.com/blog/wp-content/uploads/2013/02/Al-Gore.jpg"}
   ])
 
 User.find(1).electric_bills.create([
@@ -336,7 +336,7 @@ User.find(2).friends << User.find(1) << User.find(15)
 User.find(3).friends << User.find(1) << User.find(2) << User.find(4) << User.find(5) << User.find(6) << User.find(7) << User.find(8) << User.find(9) << User.find(10) << User.find(11) << User.find(12) << User.find(13) << User.find(14) << User.find(15)
 
 Group.create([
-  {name: "Politicans"},
+  {name: "Politicians"},
   {name: "Activists"},
   {name: "Americans"},
   {name: "Conservationists"},

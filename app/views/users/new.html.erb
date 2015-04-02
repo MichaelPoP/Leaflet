@@ -1,41 +1,41 @@
-<h1>Create a profile</h1>
+<div class="container newUser">
+<h1 class = "newUserTitle">Create a profile</h1>
 
-<p><%= form_for User.new do |f| %>
-  <div class="col-sm-5 text-center">
+<%= form_for User.new do |f| %>
+<div class="row">
+  <div class="col-sm-4 text-center">
     <div class="image-preview-single">
       
         <img src="" alt="">
         <input type="hidden" role="uploadcare-uploader" data-clearable="" data-images-only="" data-image-shrink="180x180 80%" data-public-key="8f615b911b6092cc8a13" value="" name="user[profile_pic]">
       </div>
-      <p><b> Upload a Profile Picture</b>
+      <p class = "profPicUploadMessage"><b> Upload a Profile Picture</b>
     </p>
   </div>
   <div>
-  <%= f.label :first_name %>:
+  <%= f.label :first_name, class: "newStats first_name" %>:
   <%= f.text_field(:first_name, required: true, autofocus: true, value: "#{session[:first_name]}") %>
   </div>
   <div>
-    <%= f.label :last_name %>:
+    <%= f.label :last_name, class: "newStats last_name" %>:
     <%= f.text_field(:last_name, value: session[:last_name]) %>
   </div>
   <div>
-    <%= f.label :email %>:
+    <%= f.label :email, class: "newStats emailLabel", value: "Email:" %>
     <%= f.text_field(:email, value: session[:email]) %>
   </div>
+</div> <!-- close row -->
   <div>
-    <%= f.label :mantra %>:
+    <%= f.label :mantra, class: "newMantraLabel", value: "Mantra:" %>
     <%= f.text_area :mantra, size: "50x5" %>
   </div>
   <div>
-    <%= f.label :password %>:
+    <%= f.label :password, class: "newPasswordLabel", value: "Password:" %>
     <%= f.password_field(:password, required: true) %>
   </div>
   <div>
-    <%= f.label :confirm_password %>:
-    <%= f.password_field(:confirm_password, required: true) %>
-  </div>
-  <div>
-    <%= f.submit :Submit %>
+    <%= f.submit :Submit, class: "newUserSubmit" %>
   </div>
   <% end %>
-</p>
+
+</div>
